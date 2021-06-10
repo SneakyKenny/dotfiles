@@ -113,3 +113,6 @@ eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
 
 source "$HOME/.zshenv"
+
+# Because WSL reasons...
+if [ "$PWD" = "/mnt/c/Users/kenny" ]; then cd; fi

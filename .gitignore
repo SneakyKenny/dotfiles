@@ -1,2 +1,17 @@
 build/
 debug/
+.idea/
+
+*.class
+*.o
+*.out
+*.h.gch
+*.swp
+*.swo
+*.pyc
+*.log
+*.lock
+*.tmp
+.venv/
+*.iml
+.vscode/

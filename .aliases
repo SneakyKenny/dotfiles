@@ -4,7 +4,13 @@ alias grep='grep --color=auto'
 
 alias vim='nvim'
 
-alias xclip='xclip -sel c'
+# Depends on Arch - WSL
+command -v "clip.exe" >/dev/null 2>&1
+if [ "$?" != "0" ]; then
+    alias xclip='xclip -sel c';
+else
+    alias xclip='clip.exe';
+fi
 
 alias ls='exa --color=always --group-directories-first'
 alias la='exa -a --color=always --group-directories-first'
@@ -14,3 +20,5 @@ alias lh='exa -h --color=always --group-directories-first'
 alias l='ll'
 
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+
+alias gitlines='git ls-files | xargs -n1 git blame --line-porcelain | sed -n '\''s/^author //p'\'' | sort -f | uniq -ic | sort -nr'

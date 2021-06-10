@@ -7,3 +7,5 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export JAVA_HOME=/usr/
 
 export HISTCONTROL=ignoredups:erasedups
+
+export SSH_SERVER_IP='94.239.55.153'
