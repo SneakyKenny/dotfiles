@@ -1,0 +1,16 @@
+alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+
+alias grep='grep --color=auto'
+
+alias vim='nvim'
+
+alias xclip='xclip -sel c'
+
+alias ls='exa --color=always --group-directories-first'
+alias la='exa -a --color=always --group-directories-first'
+alias ll='exa -l --color=always --group-directories-first'
+alias lla='exa -la --color=always --group-directories-first'
+alias lh='exa -h --color=always --group-directories-first'
+alias l='ll'
+
+alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'

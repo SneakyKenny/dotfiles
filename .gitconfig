@@ -1,0 +1,7 @@
+[user]
+	name = Kenny Lorin
+	email = kenny.lorin@epita.fr
+[color]
+	ui = true
+[push]
+	default = simple
