@@ -237,6 +237,7 @@ call plug#begin()
 " Theme {{{
 
 Plug 'sainnhe/gruvbox-material'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " colorscheme gruvbox-material " moved to ~/.nvimrc
 " set termguicolors
 set background=dark
@@ -252,6 +253,16 @@ set nocompatible
 Plug 'sheerun/vim-polyglot'
 
 " }}} !Languages
+
+" Language Servers {{{
+
+" Rust {{{
+
+
+
+" }}}
+
+" }}}
 
 " Tags {{{
 
