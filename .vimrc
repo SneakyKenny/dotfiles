@@ -148,7 +148,8 @@ nmap <silent> <leader><Tab> :tabnext<CR>
 nmap <silent> <leader>p :tabprev<CR>
 nmap <silent> <leader><s-Tab> :tabprev<CR>
 
-" Quit
+" Save & Quit
+nmap <silent> <leader>w :w<CR>
 nmap <silent> <leader>q :q<CR>
 
 " Split making
@@ -237,7 +238,7 @@ call plug#begin()
 " Theme {{{
 
 Plug 'sainnhe/gruvbox-material'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " colorscheme gruvbox-material " moved to ~/.nvimrc
 " set termguicolors
 set background=dark
@@ -256,9 +257,11 @@ Plug 'sheerun/vim-polyglot'
 
 " Language Servers {{{
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Rust {{{
 
-
+Plug 'rust-lang/rust.vim'
 
 " }}}
 
