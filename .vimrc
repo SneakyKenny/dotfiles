@@ -134,10 +134,6 @@ inoremap <C-l> <C-\><C-O>w
 inoremap <C-Left> <C-\><C-O>b
 inoremap <C-Right> <C-\><C-O>w
 
-" Save shortcut
-nnoremap <c-s> :w<CR>
-nnoremap <leader>s :w<CR>
-
 " Tab creating
 nmap <silent> <leader>t :tabnew<CR>
 
@@ -148,9 +144,13 @@ nmap <silent> <leader><Tab> :tabnext<CR>
 nmap <silent> <leader>p :tabprev<CR>
 nmap <silent> <leader><s-Tab> :tabprev<CR>
 
-" Save & Quit
-nmap <silent> <leader>w :w<CR>
+" Quit & Save shortcuts
 nmap <silent> <leader>q :q<CR>
+nmap <silent> <leader>a :qa<CR>
+nmap <c-q> :wqa<CR>
+nmap <silent> <leader>w :w<CR>
+nmap <silent> <leader>s :wa<CR>
+nmap <c-s> :wa<CR>
 
 " Split making
 nmap <silent> <leader><Return> :vsp<CR>
@@ -191,6 +191,18 @@ inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}
 " Functions {{{
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
+" Auto-formatting
+
+function FormatBuffer()
+  if &modified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
+    let cursor_pos = getpos('.')
+    :%!clang-format
+    call setpos('.', cursor_pos)
+  endif
+endfunction
+
+autocmd BufWritePre *.h,*.c, :call FormatBuffer()
 
 " Remove trailing whitespace in file
 function s:RemoveTrailingSpace()
@@ -269,20 +281,20 @@ Plug 'rust-lang/rust.vim'
 
 " Tags {{{
 
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
+" Plug 'ludovicchabant/vim-gutentags'
+" Plug 'skywind3000/gutentags_plus'
 
 " enable tag plugins
-let g:gutentags_modules = ['ctags', 'gtags_cscope']
-
+" let g:gutentags_modules = ['ctags', 'gtags_cscope']
+" 
 " config project root markers
-let g:gutentags_project_root = ['.root']
-
+" let g:gutentags_project_root = ['.root']
+" 
 " generate tags in cache
-let g:gutentags_cache_dir = expand('~/.cache/tags')
-
+" let g:gutentags_cache_dir = expand('~/.cache/tags')
+" 
 " change focus to quickfix window after search 
-let g:gutentags_plus_switch = 1
+" let g:gutentags_plus_switch = 1
 
 " }}} !Tags
 
