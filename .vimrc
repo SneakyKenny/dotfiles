@@ -262,7 +262,7 @@ set t_ut=""
 
 " Languages {{{
 
-set nocompatible
+" set nocompatible
 Plug 'sheerun/vim-polyglot'
 
 " }}} !Languages
@@ -271,9 +271,27 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " Rust {{{
 
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
+
+" }}}
+
+" Extras {{{
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+nmap <silent> <C-f> :Files<CR>
+nmap <silent> <leader>f :Rg<CR>
+
+" command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " }}}
 
